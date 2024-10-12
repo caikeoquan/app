@@ -29,7 +29,8 @@ contract = web3.eth.contract(address=contract_address, abi=contract_abi)
 def get_total_supply():
     try:
         total_supply = int(int(contract.functions.totalSupply().call())/10**9)
-        return jsonify(total_supply)
+        return str(total_supply)
+        # return jsonify(total_supply
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -37,9 +38,10 @@ def get_total_supply():
 def get_cir_supply():
     try:
         cir_supply = 90000000
-        return jsonify(cir_supply)
+        return str(cir_supply)
+        # return jsonify(cir_supply)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5500)
+    app.run(host='0.0.0.0', port=5000)
